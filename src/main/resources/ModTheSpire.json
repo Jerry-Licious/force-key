@@ -1,0 +1,10 @@
+{
+  "modid": "force-key",
+  "name": "Force Key",
+  "author_list": ["Jerry"],
+  "description": "Forces you to take keys in Act 3.",
+  "version": "0.0.1",
+  "sts_version": "12-22-2020",
+  "mts_version": "3.19.0",
+  "dependencies": []
+}
