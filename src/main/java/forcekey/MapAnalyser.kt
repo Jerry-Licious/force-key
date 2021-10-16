@@ -10,6 +10,8 @@ class MapAnalyser(val map: ArrayList<ArrayList<MapRoomNode>>) {
             MapAnalyser(AbstractDungeon.map).nodeReachableFrom(AbstractDungeon.currMapNode.coordinates, predicate)
     }
 
+    fun mapHasEmeraldKey() = map.any { list -> list.any { it.hasEmeraldKey } }
+
     fun getMapRoomNode(coordinate: Point2D) = map[coordinate.y][coordinate.x]
 
     // Returns the node coordinates that this node can reach in one floor.

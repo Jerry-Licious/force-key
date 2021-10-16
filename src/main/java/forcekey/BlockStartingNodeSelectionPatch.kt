@@ -17,7 +17,7 @@ class BlockStartingNodeSelectionPatch {
         @SpireInsertPatch(rloc = 118)
         fun blockSelection(node: MapRoomNode): SpireReturn<Void> {
             // If the player is in act 3 and does not have a working pair of wing boots.
-            if (AbstractDungeon.actNum == 3 && !Settings.hasEmeraldKey &&
+            if (AbstractDungeon.actNum == 3 && !Settings.hasEmeraldKey && Settings.isFinalActAvailable &&
                 !(AbstractDungeon.player.hasRelic(WingBoots.ID) && !AbstractDungeon.player.getRelic(WingBoots.ID).usedUp) &&
                 // and the node does not have or does not lead to the green key
                 !MapAnalyser(AbstractDungeon.map).nodeReachableFrom(node.coordinates) { it.hasEmeraldKey } && !node.hasEmeraldKey) {

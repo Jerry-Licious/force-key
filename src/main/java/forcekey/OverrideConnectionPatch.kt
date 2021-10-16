@@ -20,10 +20,13 @@ class OverrideConnectionPatch {
                                normalConnection: Array<Boolean>,
                                @ByRef(type = "boolean")
                                wingedConnection: Array<Boolean>) {
+
             // Only consider blocking paths if the player is in act 3.
             if (AbstractDungeon.actNum == 3 && Settings.isFinalActAvailable && !Settings.hasEmeraldKey) {
                 val nodeContainsKey = node.hasEmeraldKey
-                val nodeLeadsToKey = MapAnalyser(AbstractDungeon.map).nodeReachableFrom(node.coordinates) { it.hasEmeraldKey }
+
+                val analyser = MapAnalyser(AbstractDungeon.map)
+                val nodeLeadsToKey = analyser.nodeReachableFrom(node.coordinates) { it.hasEmeraldKey }
 
                 // If the player can access the node normally
                 if (normalConnection[0]) {
